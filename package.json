@@ -1,5 +1,5 @@
 {
-  "name": "Papago-TS",
+  "name": "papagots",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,6 +7,6 @@
     "axios": "^0.21.1"
   },
   "scripts": {
-    "build": "tsx"
+    "build": "tsc"
   }
 }
