@@ -1,13 +1,26 @@
-import axios from "axios"
-
-const BASE_URL: string = "https://openapi.naver.com/v1/papago/"
+import axios, { AxiosInstance } from "axios"
+import { NMTParams as NMTData, PapagoHeaders } from "../types/nmt"
 
 export class HTTP {
-  BASE_URL: string = "https://openapi.naver.com/v1/papago/"
+  post(url: string, data: NMTData, headers: PapagoHeaders) {
+    return axios
+      .post(url, data, { headers: headers })
+      .then((res) => {
+        return res.data
+      })
+      .catch((err) => {
+        if (err.response) {
+          throw new PapagoError(
+            `[${err.response.data.errorCode}] ${err.response.data.errorMessage}`
+          )
+        }
+      })
+  }
+}
 
-  async get(params: object, headers: object) {
-    return await axios
-      .get(BASE_URL, { params: params, headers: headers })
-      .then((res) => res.data)
+class PapagoError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "PapagoError"
   }
 }

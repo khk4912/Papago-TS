@@ -13,6 +13,17 @@ export type NMTSupportedLangs =
   | "it"
   | "fr"
 
+export interface NMTParams {
+  source: string
+  target: string
+  text: string
+}
+
+export interface PapagoHeaders {
+  "X-Naver-Client-Id": string
+  "X-Naver-Client-Secret": string
+}
+
 export interface NMTResultInterface {
   srcLangType: string
   tarLangType: string
