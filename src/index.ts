@@ -1,4 +1,10 @@
-import { NMTSupportedLangs, PapagoHeaders } from "./types/nmt"
+import {
+  NMTSupportedLangs,
+  PapagoHeaders,
+  NMTResultMessage,
+  NMTResult,
+  NMTSupportedLangsByLangs,
+} from "./types/nmt"
 import { HTTP } from "./utils/request"
 
 const NMT_BASE_URL: string = "https://openapi.naver.com/v1/papago/n2mt"
@@ -12,23 +18,23 @@ export default class Papago {
     this.clientSecret = clientSecret
   }
 
-  async nmtTranslate(
-    source: NMTSupportedLangs,
-    target: NMTSupportedLangs,
+  async nmtTranslate<T extends NMTSupportedLangs>(
+    source: ,
+    target: NMTSupportedLangsByLangs[T],
     text: string
-  ) {
-    let http = await new HTTP().post(
+  ): Promise<NMTResult> {
+    let http: NMTResultMessage = await new HTTP().post(
       NMT_BASE_URL,
       { source: source, target: target, text: text },
       this.createHeaders()
     )
-    return http
+    return http.message.result
   }
 
-  createHeaders(): PapagoHeaders {
+  private createHeaders(): PapagoHeaders {
     return {
       "X-Naver-Client-Id": this.clientID,
-      "X-Naver-Client-Secret": this.clientSecret, // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      "X-Naver-Client-Secret": this.clientSecret,
     }
   }
 }
