@@ -1,7 +1,6 @@
 import {
   NMTSupportedLangs,
   PapagoHeaders,
-  NMTResultMessage,
   NMTResult,
   NMTSupportedLangsByLangs,
 } from "./types/nmt"
