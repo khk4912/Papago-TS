@@ -100,4 +100,3 @@ tests/cases/user/prettier/prettier
 .eslintcache
 dist
 
-test.ts
