@@ -1,16 +1,8 @@
-import axios from "axios"
-import {
-  NMTParams as NMTData,
-  NMTResultMessage,
-  PapagoHeaders,
-} from "../types/nmt"
+import axios, { AxiosResponse } from "axios"
+import { PapagoHeaders, NMTData, NMTResult } from "../types/nmt"
 
 export class HTTP {
-  async post(
-    url: string,
-    data: NMTData,
-    headers: PapagoHeaders
-  ): Promise<NMTResultMessage> {
+  async post<T, S>(url: string, data: T, headers: PapagoHeaders): Promise<S> {
     try {
       const res = await axios.post(url, data, { headers: headers })
       return res.data

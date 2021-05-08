@@ -1,3 +1,29 @@
+export interface NMTData {
+  source: string
+  target: string
+  text: string
+}
+
+export interface PapagoHeaders {
+  "X-Naver-Client-Id": string
+  "X-Naver-Client-Secret": string
+}
+
+export interface NMTResultMessage {
+  message: {
+    "@type": string
+    "@service": string
+    "@version": string
+    result: NMTResult
+  }
+}
+
+export interface NMTResult {
+  srcLangType: NMTSupportedLangs
+  tarLangType: NMTSupportedLangs
+  translatedText: string
+}
+
 export type NMTSupportedLangs =
   | "ko"
   | "en"
@@ -39,30 +65,4 @@ export type NMTSupportedLangsByLangs = {
   es: "ko"
   it: "ko"
   fr: "ko" | "en"
-}
-
-export interface NMTParams {
-  source: string
-  target: string
-  text: string
-}
-
-export interface PapagoHeaders {
-  "X-Naver-Client-Id": string
-  "X-Naver-Client-Secret": string
-}
-
-export interface NMTResultMessage {
-  message: {
-    "@type": string
-    "@service": string
-    "@version": string
-    result: NMTResult
-  }
-}
-
-export interface NMTResult {
-  srcLangType: string
-  tarLangType: string
-  translatedText: string
 }
