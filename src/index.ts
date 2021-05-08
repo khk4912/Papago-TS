@@ -1,7 +1,6 @@
 import {
   NMTSupportedLangs,
   PapagoHeaders,
-  NMTResult,
   NMTSupportedLangsByLangs,
 } from "./types/nmt"
 import { HTTP } from "./utils/request"
@@ -21,13 +20,13 @@ export default class Papago {
     source: T,
     target: NMTSupportedLangsByLangs[T],
     text: string
-  ): Promise<NMTResult> {
+  ): Promise<string> {
     let http = await new HTTP().post(
       NMT_BASE_URL,
       { source: source, target: target, text: text },
       this.createHeaders()
     )
-    return http.message.result
+    return http.message.result.translatedText
   }
 
   private createHeaders(): PapagoHeaders {
