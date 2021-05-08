@@ -19,11 +19,11 @@ export default class Papago {
   }
 
   async nmtTranslate<T extends NMTSupportedLangs>(
-    source: ,
+    source: T,
     target: NMTSupportedLangsByLangs[T],
     text: string
   ): Promise<NMTResult> {
-    let http: NMTResultMessage = await new HTTP().post(
+    let http = await new HTTP().post(
       NMT_BASE_URL,
       { source: source, target: target, text: text },
       this.createHeaders()
