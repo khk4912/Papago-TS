@@ -99,3 +99,5 @@ tests/cases/user/axios-src/axios-src
 tests/cases/user/prettier/prettier
 .eslintcache
 dist
+
+test.ts
