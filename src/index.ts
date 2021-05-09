@@ -1,3 +1,8 @@
+import {
+  RomanziationParams,
+  RomanziationMessage,
+  RomanaResult,
+} from "./types/romanziation"
 import { DetectData, DetectLangs, DetectMessage } from "./types/detect"
 import {
   NMTSupportedLangs,
@@ -10,6 +15,7 @@ import { HTTP } from "./utils/request"
 
 const NMT_BASE_URL = "https://openapi.naver.com/v1/papago/n2mt"
 const DETECT_BASE_URL = "https://openapi.naver.com/v1/papago/detectLangs"
+const ROMAN_BASE_URL = "https://openapi.naver.com/v1/krdict/romanization"
 
 export default class Papago {
   private clientID: string
@@ -41,6 +47,16 @@ export default class Papago {
     )
     return http.langCode
   }
+
+  async romanziation(text: string): Promise<RomanaResult> {
+    let http = await new HTTP().get<RomanziationParams, RomanziationMessage>(
+      ROMAN_BASE_URL,
+      { query: text },
+      this.createHeaders()
+    )
+    return http.aResult[0]
+  }
+
   private createHeaders(): PapagoHeaders {
     return {
       "X-Naver-Client-Id": this.clientID,
