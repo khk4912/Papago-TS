@@ -1,17 +1,17 @@
-export interface RomanziationParams {
+export interface RomanizationParams {
   query: string
 }
 
-export interface RomanziationMessage {
-  aResult: [RomanaResult]
+export interface RomanizationMessage {
+  aResult: [RomanizationaResult]
 }
 
-export interface RomanaResult {
+export interface RomanizationaResult {
   sFirstname: string
-  aItems: RomanaItems[]
+  aItems: RomanizationaItems[]
 }
 
-interface RomanaItems {
+interface RomanizationaItems {
   name: string
   score: string
 }

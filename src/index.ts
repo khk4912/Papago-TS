@@ -1,7 +1,7 @@
 import {
-  RomanziationParams,
-  RomanziationMessage,
-  RomanaResult,
+  RomanizationParams,
+  RomanizationMessage,
+  RomanizationaResult,
 } from "./types/romanziation"
 import { DetectData, DetectLangs, DetectMessage } from "./types/detect"
 import {
@@ -48,8 +48,8 @@ export default class Papago {
     return http.langCode
   }
 
-  async romanziation(text: string): Promise<RomanaResult> {
-    let http = await new HTTP().get<RomanziationParams, RomanziationMessage>(
+  async romanziation(text: string): Promise<RomanizationaResult> {
+    let http = await new HTTP().get<RomanizationParams, RomanizationMessage>(
       ROMAN_BASE_URL,
       { query: text },
       this.createHeaders()
