@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from "axios"
-import { PapagoHeaders, NMTData, NMTResult } from "../types/nmt"
+import axios from "axios"
+import { PapagoHeaders } from "../types/nmt"
 
 export class HTTP {
   async post<T, S>(url: string, data: T, headers: PapagoHeaders): Promise<S> {
