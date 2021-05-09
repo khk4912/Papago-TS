@@ -2,7 +2,8 @@
   "name": "papago-ts",
   "version": "1.0.1",
   "description": "TypeScript wrapper for Papago API.",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/khk4912/Papago-TS"
