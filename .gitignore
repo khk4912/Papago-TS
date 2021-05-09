@@ -101,3 +101,5 @@ tests/cases/user/prettier/prettier
 dist
 
 test.ts
+test
+yarn.lock
