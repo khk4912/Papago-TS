@@ -2,11 +2,19 @@
 
 TypeScript wrapper for Papago API.
 
+## Install
+
+```
+npm install papago-ts
+```
+
 ## Usage
 
 ### NMT Translation
 
 ```ts
+import Papago from "papago-ts"
+
 let papago = new Papago("clientID", "clientSecret")
 papago.nmtTranslate("ko", "en", "안녕하세요").then(console.log)
 ```
@@ -18,6 +26,8 @@ papago.nmtTranslate("ko", "en", "안녕하세요").then(console.log)
 ### Language Detection
 
 ```ts
+import Papago from "papago-ts"
+
 let papago = new Papago("clientID", "clientSecret")
 papago.detectLangs("안녕하세요!").then(console.log)
 ```
@@ -29,6 +39,8 @@ papago.detectLangs("안녕하세요!").then(console.log)
 ### Name Romanization
 
 ```ts
+import Papago from "papago-ts"
+
 let papago = new Papago("clientID", "clientSecret")
 papago.romanziation("이지은").then(console.log)
 ```
