@@ -12,12 +12,9 @@ import {
   NMTResultMessage,
 } from "./types/nmt"
 import { HTTP } from "./utils/request"
+import { NMT_BASE_URL, ROMAN_BASE_URL, DETECT_BASE_URL } from "./constant"
 
-const NMT_BASE_URL = "https://openapi.naver.com/v1/papago/n2mt"
-const DETECT_BASE_URL = "https://openapi.naver.com/v1/papago/detectLangs"
-const ROMAN_BASE_URL = "https://openapi.naver.com/v1/krdict/romanization"
-
-export default class Papago {
+class Papago {
   private clientID: string
   private clientSecret: string
 
@@ -64,3 +61,6 @@ export default class Papago {
     }
   }
 }
+
+
+export default Papago
